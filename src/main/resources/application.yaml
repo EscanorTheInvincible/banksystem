@@ -1,0 +1,8 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3306/banksystem?useSSL=false
+        username: root
+        password: root
+        
+#JPA setting
+    jpa.hibernate.ddl-auto: create
