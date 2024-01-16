@@ -21,11 +21,18 @@ public class CustomerService {
     public Customer getCustomerDetails(String id) {
         return new Customer(123,"A","B","C");
 }
+    // Create Customer
     @PostMapping
     public String createCustomer(@RequestBody Customer customer) {
         //TODO: process POST request
         Customer c1 = customer;
         return "Customer Created with id "+ c1.getCustomer_id();
     }
+
+    // TODO
+    // Update API 
+
+    //TODO
+    // Delete API
     
 }
