@@ -6,15 +6,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.bankofireland.banksystem.model.Customer;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
 
 @RequestMapping("/customer")
 public class CustomerService {
-    // @RequestMapping("/getDetails", method=RequestMethod.GET)
+    
+    // Get Customer Details
     @GetMapping("{id}")
     public Customer getCustomerDetails(String id) {
         return new Customer(123,"A","B","C");
 }
+    @PostMapping
+    public String createCustomer(@RequestBody Customer customer) {
+        //TODO: process POST request
+        Customer c1 = customer;
+        return "Customer Created";
+    }
+    
 }
