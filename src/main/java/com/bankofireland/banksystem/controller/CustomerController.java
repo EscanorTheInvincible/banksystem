@@ -28,8 +28,12 @@ public class CustomerController {
     // Get Customer Details
     @GetMapping("{id}")
     public Customer getCustomerDetails(@PathVariable("id") int id) {
+        try {
+            return customerService.getCustomer(id);
+        } catch (Exception e) {
+            return new Customer();
+        }
         
-        return customerService.getCustomer(id);
 }
     // Create Customer
     @PostMapping
