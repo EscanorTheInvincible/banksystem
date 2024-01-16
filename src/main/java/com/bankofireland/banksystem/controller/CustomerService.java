@@ -25,7 +25,7 @@ public class CustomerService {
     public String createCustomer(@RequestBody Customer customer) {
         //TODO: process POST request
         Customer c1 = customer;
-        return "Customer Created";
+        return "Customer Created with id "+ c1.getCustomer_id();
     }
     
 }
