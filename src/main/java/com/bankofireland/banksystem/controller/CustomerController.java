@@ -12,41 +12,37 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 @RestController
 
 @RequestMapping("/customer")
 public class CustomerController {
-    
+
     CustomerService customerService;
-    
 
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
+
     // Get Customer Details
     @GetMapping("{id}")
     public Customer getCustomerDetails(@PathVariable("id") int id) {
-        try {
-            return customerService.getCustomer(id);
-        } catch (Exception e) {
-            return new Customer();
-        }
-        
-}
+
+        return customerService.getCustomer(id);
+
+    }
+
     // Create Customer
     @PostMapping
     public String createCustomer(@RequestBody Customer customer) {
-        //TODO: process POST request
-        
+        // TODO: process POST request
+
         return customerService.createCustomer(customer);
     }
 
     // TODO
-    // Update API 
+    // Update API
 
-    //TODO
+    // TODO
     // Delete API
-    
+
 }
