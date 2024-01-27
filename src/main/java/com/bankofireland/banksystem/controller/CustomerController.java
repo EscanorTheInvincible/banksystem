@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bankofireland.banksystem.model.Customer;
 import com.bankofireland.banksystem.service.CustomerService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,10 +40,20 @@ public class CustomerController {
         return customerService.createCustomer(customer);
     }
 
-    // TODO
-    // Update API
+    // Update Customer 
+    @PostMapping("update")
+    public String updateCustomerDetails(@RequestBody Customer customer) {
 
-    // TODO
-    // Delete API
+        return customerService.updateCustomerDetails(customer);
+
+    }
+
+    // Delete Customer 
+    @GetMapping("delete/{id}")
+    public String deleteCustomerDetails(@PathVariable("id") int id) {
+
+        return customerService.deleteCustomerDetails(id);
+
+    }
 
 }

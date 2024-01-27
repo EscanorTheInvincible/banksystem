@@ -32,5 +32,25 @@ public class CustomerServiceImpl implements CustomerService{
         return "Successfullt created customer with id : "+ customer.getCustomer_id();
 
     }
+
+    @Override
+    public String deleteCustomerDetails(int id) {
+        // TODO Auto-generated method stub
+        customerRepository.deleteById(id);
+        return "Successfullt deleted customer with id : "+ id;
+
+    }
     
+    @Override
+    public String updateCustomerDetails(Customer customer) {
+        // TODO Auto-generated method stub
+        if(customerRepository.findById(customer.getCustomer_id()).isEmpty()) {
+                    customerRepository.save(customer);
+                return "Custmoer was not present so created new data :"+ customer.getCustomer_id();
+    }
+        else 
+        customerRepository.save(customer);
+        return "Custmoer was present and updated successfully :"+ customer.getCustomer_id();
+
+}
 }
